@@ -472,8 +472,12 @@ class Controller extends BlockController
             if (Config::get('concrete.email.form_block.address') && strstr(Config::get('concrete.email.form_block.address'), '@')) {
                 $formFormEmailAddress = Config::get('concrete.email.form_block.address');
             } else {
-                $adminUserInfo = UserInfo::getByID(USER_SUPER_ID);
-                $formFormEmailAddress = $adminUserInfo->getUserEmail();
+                if ($u->isRegistered()) {
+                    $formFormEmailAddress = u->getUserEmail();
+                } else {
+                    $adminUserInfo = UserInfo::getByID(USER_SUPER_ID);
+                    $formFormEmailAddress = $adminUserInfo->getUserEmail();
+                }
             }
             $replyToEmailAddress = $formFormEmailAddress;
             //loop through each question and get the answers
