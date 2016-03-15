@@ -4,7 +4,7 @@
 	<form method="post" action="<?= URL::to('/login', 'callback', $authType->getAuthenticationTypeHandle(), 'forgot_password') ?>">
 		<h4><?= t('Forgot Your Password?') ?></h4>
 		<div class="ccm-message"><?= isset($intro_msg) ? $intro_msg : '' ?></div>
-		<div class='help-block'>
+		<div class="help-block">
 			<?= t('Enter your email address below. We will send you instructions to reset your password.') ?>
 		</div>
 		<div class="form-group">
